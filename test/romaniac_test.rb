@@ -146,4 +146,10 @@ class RomaniacTest < MiniTest::Unit::TestCase
     assert Roman(20) >= Roman(20)
     assert Roman(20) <= Roman(20)
   end
+
+  def test_to_s_returns_human_readable_representation
+    assert_equal 'C', Roman(100).to_s
+    assert_equal 'CCC', Roman(300).to_s
+    assert_equal 'XXI', Roman(21).to_s
+  end
 end

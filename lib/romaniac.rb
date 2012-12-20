@@ -34,6 +34,10 @@ class Romaniac
     @int
   end
 
+  def to_s
+    @roman
+  end
+
   def <=>(other)
     @int <=> other.to_i
   end
