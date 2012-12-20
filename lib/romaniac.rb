@@ -28,6 +28,10 @@ class Romaniac
   private
 
   def validate(int)
+    if !int.is_a?(Fixnum)
+      raise TypeError, "can't convert #{ int.class } into Roman"
+    end
+
     if int <= 0
       raise RangeError, 'integer is too small to convert into Roman'
     end

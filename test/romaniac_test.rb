@@ -28,7 +28,15 @@ class RomaniacTest < MiniTest::Unit::TestCase
   end
 
   def test_noninteger_argument_value_raises_exception
-    flunk
+    e = assert_raises TypeError do
+      Roman(:'10')
+    end
+    assert_match /can't convert Symbol into Roman/, e.message
+
+    e = assert_raises TypeError do
+      Roman(10.55)
+    end
+    assert_match /can't convert Float into Roman/, e.message
   end
 
   def test_too_big_integer_value_raises_exception
