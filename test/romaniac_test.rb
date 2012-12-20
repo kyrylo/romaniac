@@ -21,7 +21,10 @@ class RomaniacTest < MiniTest::Unit::TestCase
   end
 
   def test_negative_arabic_to_roman_conversion_raises_exception
-    flunk
+    e = assert_raises RangeError do
+      Roman(-1)
+    end
+    assert_match /integer is too small to convert into Roman/, e.message
   end
 
   def test_noninteger_argument_value_raises_exception
