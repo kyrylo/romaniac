@@ -36,6 +36,10 @@ class Romaniac
     self.class.new(@int + other.to_i)
   end
 
+  def -(other)
+    self.class.new(@int - other.to_i)
+  end
+
   private
 
   def validate(int)
