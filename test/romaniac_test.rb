@@ -79,15 +79,14 @@ class RomaniacTest < MiniTest::Unit::TestCase
     assert_match /quotient isn't an integer/, e.message
   end
 
-  def test_division_raises_exception_when_the_integer_part_of_quotient_is_zero
-    flunk
-  end
-
   def test_multiplication_works_correctly
-    flunk
+    assert_equal Roman(20), Roman(5) * Roman(4)
   end
 
-  def test_multiplication_raises_exception_when_the_result_is_too_big
-    flunk
+  def test_too_big_product_raises_exception
+    e = assert_raises RangeError do
+      Roman(400) * Roman(300)
+    end
+    assert_match /integer is too big to convert into Roman/, e.message
   end
 end
