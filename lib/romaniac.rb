@@ -19,4 +19,8 @@ class Romaniac
   def inspect
     "(Roman: #@roman)"
   end
+
+  def to_i
+    @int
+  end
 end

@@ -8,7 +8,9 @@ class RomaniacTest < MiniTest::Unit::TestCase
   end
 
   def test_roman_to_arabic_conversion
-    flunk
+    assert_equal 201, Roman(201).to_i
+    assert_equal 3000, Roman(3000).to_i
+    assert_equal 1, Roman(1).to_i
   end
 
   def test_zero_to_roman_conversion_raises_exception
