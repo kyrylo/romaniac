@@ -68,16 +68,15 @@ class RomaniacTest < MiniTest::Unit::TestCase
     assert_match /integer is too small to convert into Roman/, e.message
   end
 
-  def test_subtraction_raises_exception_when_the_result_is_zero
-    flunk
-  end
-
   def test_division_works_correctly
-    flunk
+    assert_equal Roman(5), Roman(20) / Roman(4)
   end
 
-  def test_division_truncates_fractional_part_of_quotient
-    flunk
+  def test_nonint_quotient_raises_exception
+    e = assert_raises Romaniac::DivisionError do
+      Roman(20) / Roman(3)
+    end
+    assert_match /quotient isn't an integer/, e.message
   end
 
   def test_division_raises_exception_when_the_integer_part_of_quotient_is_zero

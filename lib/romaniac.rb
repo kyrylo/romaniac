@@ -14,6 +14,8 @@ class Romaniac
   # The maximum possible Roman numeral.
   LIMIT = 3999
 
+  DivisionError = Class.new(StandardError)
+
   def initialize(int)
     validate(int)
     @int   = int
@@ -38,6 +40,15 @@ class Romaniac
 
   def -(other)
     self.class.new(@int - other.to_i)
+  end
+
+  def /(other)
+    int, fraction = @int.divmod(other.to_i)
+    if fraction.zero?
+      self.class.new(int)
+    else
+      raise Romaniac::DivisionError, "quotient isn't an integer"
+    end
   end
 
   private
