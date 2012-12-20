@@ -11,6 +11,9 @@ class Romaniac
   VERSION = File.exist?(VERSION_FILE) ?
     File.read(VERSION_FILE) : '(could not find VERSION file)'
 
+  # The maximum possible Roman numeral.
+  LIMIT = 3999
+
   def initialize(int)
     validate(int)
     @int   = int
@@ -34,6 +37,8 @@ class Romaniac
 
     if int <= 0
       raise RangeError, 'integer is too small to convert into Roman'
+    elsif int > LIMIT
+      raise RangeError, 'integer is too big to convert into Roman'
     end
   end
 end

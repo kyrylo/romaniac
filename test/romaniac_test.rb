@@ -2,15 +2,15 @@ require 'helper'
 
 class RomaniacTest < MiniTest::Unit::TestCase
   def test_arabic_to_roman_conversion
-    assert_equal '(Roman: X)', Roman(10).inspect
+    assert_equal '(Roman: I)', Roman(1).inspect
     assert_equal '(Roman: CI)', Roman(101).inspect
-    assert_equal '(Roman: CCI)', Roman(201).inspect
+    assert_equal '(Roman: MMMCMXCIX)', Roman(3999).inspect
   end
 
   def test_roman_to_arabic_conversion
     assert_equal 201, Roman(201).to_i
     assert_equal 3000, Roman(3000).to_i
-    assert_equal 1, Roman(1).to_i
+    assert_equal 66, Roman(66).to_i
   end
 
   def test_zero_to_roman_conversion_raises_exception
@@ -40,7 +40,10 @@ class RomaniacTest < MiniTest::Unit::TestCase
   end
 
   def test_too_big_integer_value_raises_exception
-    flunk
+    e = assert_raises RangeError do
+      Roman(4000)
+    end
+    assert_match /integer is too big to convert into Roman/, e.message
   end
 
   def test_addition_works_correctly
