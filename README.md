@@ -22,8 +22,8 @@ Basic example.
 ```ruby
 require 'romaniac'
 
-ten = Roman(10) #=> X
-twelve = Roman(12) #=> XII
+ten = Roman(10) #=> (Roman: X)
+twelve = Roman(12) #=> (Roman: XII)
 puts ten.to_i #=> 10
 ```
 
@@ -31,24 +31,16 @@ Arthmetic operations.
 
 ```ruby
 # Addition.
-twenty = Roman(20) #=> XX
-five = Roman(5) #=> V
-puts twenty + five #=> XXV
+puts Roman(20) + Roman(5) #=> (Roman: XV)
 
 # Subtraction.
-twenty = Roman(20)
-five = Roman(5)
-puts twenty - five #=> XV
+Roman(20) - Roman(5) #=> (Roman: XV)
 
 # Division.
-twenty = Roman(20)
-five = Roman(5)
-puts twenty / five #=> IV
+puts Roman(20) / Roman(5) #=> (Roman: IV)
 
 # Multiplication.
-twenty = Roman(20)
-five = Roman(5)
-puts twenty * five #=> C
+puts Roman(20) * Roman(5) #=> (Roman: C)
 ```
 
 If you are brave enough, you can use monkey-patches.
@@ -79,8 +71,8 @@ Roman.from_str('wqdwqd') #=> TypeError: can't convert gibberish into Roman
 Roman.from_int(100) #=> C
 puts C #=> 1
 Roman.from_int(9994000) #=> RangeError: integer is too big to convert into Roman
-Roman.from_int(0) #=> RangeError: zero can't be converted into Roman
 Roman.from_int(-124) #=> RangeError: integer is too small to convert into Roman
+Roman.from_int(0) #=> RangeError: integer is too small to convert into Roman
 Roman.from_int('V') #=> TypeError: can't convert String into Roman
 
 # If you don't care about the type of an argument, use `init` method. It's much
