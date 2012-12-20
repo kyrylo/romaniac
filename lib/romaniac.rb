@@ -12,6 +12,7 @@ class Romaniac
     File.read(VERSION_FILE) : '(could not find VERSION file)'
 
   def initialize(int)
+    validate(int)
     @int   = int
     @roman = NumeralsConverter.to_roman(int)
   end
@@ -22,5 +23,13 @@ class Romaniac
 
   def to_i
     @int
+  end
+
+  private
+
+  def validate(int)
+    if int <= 0
+      raise RangeError, 'integer is too small to convert into Roman'
+    end
   end
 end
