@@ -48,17 +48,18 @@ Roman(20) < Roman(5) #=> false
 Roman(20) == Roman(20) #=> true
 ```
 
-If you are brave enough, you can use monkey-patches.
+If you feel brave enough, you can use monkey-patches.
 
 ```ruby
 require 'romaniac/ext/all'
 
 10.to_roman #=> X
 
-(1..3).each.with_roman_index { |i| puts i }
-#=> I
-#=> II
-#=> III
+# Enumerable goodness.
+(:a..:c).each_with_roman_index.to_a
+#=> [[:a, (Roman: I)], [:b, (Roman: II)], [:c, (Roman: III)]]
+(:a..:c).map.with_roman_index(10).to_a
+#=> [[:a, (Roman: X)], [:b, (Roman: XI)], [:c, (Roman: XII)]
 ```
 
 If you really want some fun, use Ruby constants as Roman numerals.
