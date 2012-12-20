@@ -1,5 +1,5 @@
 class Romaniac
-  module NumeralsConverter
+  module Converter
 
     MAP = {
       1    => 'I',

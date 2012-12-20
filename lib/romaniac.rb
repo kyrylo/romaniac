@@ -1,4 +1,4 @@
-require 'romaniac/numerals_converter'
+require 'romaniac/converter'
 
 def Roman(int)
   Romaniac.new(int)
@@ -17,7 +17,7 @@ class Romaniac
   def initialize(int)
     validate(int)
     @int   = int
-    @roman = NumeralsConverter.to_roman(int)
+    @roman = Romaniac::Converter.to_roman(int)
   end
 
   def inspect
