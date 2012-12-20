@@ -2,7 +2,9 @@ require 'helper'
 
 class RomaniacTest < MiniTest::Unit::TestCase
   def test_arabic_to_roman_conversion
-    flunk
+    assert_equal '(Roman: X)', Roman(10).inspect
+    assert_equal '(Roman: CI)', Roman(101).inspect
+    assert_equal '(Roman: CCI)', Roman(201).inspect
   end
 
   def test_roman_to_arabic_conversion
