@@ -16,6 +16,8 @@ class Romaniac
 
   DivisionError = Class.new(StandardError)
 
+  include Comparable
+
   def initialize(int)
     validate(int)
     @int   = int
@@ -30,8 +32,8 @@ class Romaniac
     @int
   end
 
-  def ==(other)
-    @int == other.to_i
+  def <=>(other)
+    @int <=> other.to_i
   end
 
   def +(other)

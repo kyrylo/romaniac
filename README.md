@@ -41,6 +41,11 @@ puts Roman(20) / Roman(5) #=> (Roman: IV)
 
 # Multiplication.
 puts Roman(20) * Roman(5) #=> (Roman: C)
+
+# Comparison.
+Roman(20) > Roman(5) #=> true
+Roman(20) < Roman(5) #=> false
+Roman(20) == Roman(20) #=> true
 ```
 
 If you are brave enough, you can use monkey-patches.

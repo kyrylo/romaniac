@@ -89,4 +89,13 @@ class RomaniacTest < MiniTest::Unit::TestCase
     end
     assert_match /integer is too big to convert into Roman/, e.message
   end
+
+  def test_comparison
+    assert Roman(20) == Roman(20)
+    assert Roman(20) > Roman(19)
+    assert Roman(20) < Roman(21)
+    assert Roman(20) != Roman(1)
+    assert Roman(20) >= Roman(20)
+    assert Roman(20) <= Roman(20)
+  end
 end
