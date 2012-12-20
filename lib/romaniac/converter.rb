@@ -37,9 +37,6 @@ class Romaniac
     # dynamically creates new numerals.
     KEY_POINTS = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
 
-    ROMAN_PATTERN =
-      /\A(?i)M{0,3}(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])\z/i
-
     # Raw table of Arabic and Roman numerals. Fills out lazily.
     ARABIC_ROMAN = Hash.new do |hash, int|
                      hash[int] = addends_of(int).map { |addend|
@@ -83,8 +80,28 @@ class Romaniac
         roman
       end
 
+      # @api private
       def to_roman(int)
         ARABIC_ROMAN[int]
+      end
+
+      # @api private
+      # Also, stores the results of calculations into the ARABIC_ROMAN hash.
+      # @example
+      #   arabic_to_roman("CXLII") #=> 142
+      # @param [String] roman
+      # @return [Integer]
+      def roman_to_arabic(roman)
+        arabic = 0
+        r = roman.dup
+        INVERTED_MAP.each do |k, v|
+          while r.index(k) == 0
+            arabic += v
+            r.slice!(k)
+          end
+        end
+        ARABIC_ROMAN.merge!({ arabic => roman })
+        arabic
       end
     end
 

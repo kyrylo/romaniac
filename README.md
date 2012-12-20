@@ -87,29 +87,9 @@ If that is not enough for you, use Ruby constants as Roman numerals.
 ```ruby
 require 'romaniac/const'
 
-# Use strings or arabic numbers as an argument.
-Roman.from_str('II') #=> 2
-puts II #=> 2
-Roman.from_str('3') #=> 3
-puts III #=> 3
-Roman.from_str('wqdwqd') #=> TypeError: can't convert gibberish into Roman
-
-Roman.from_int(100) #=> C
-puts C #=> 1
-Roman.from_int(9994000) #=> RangeError: integer is too big to convert into Roman
-Roman.from_int(-124) #=> RangeError: integer is too small to convert into Roman
-Roman.from_int(0) #=> RangeError: integer is too small to convert into Roman
-Roman.from_int('V') #=> TypeError: can't convert String into Roman
-
-# If you don't care about the type of an argument, use `init` method. It's much
-# more loose than `from_*` ones.
-Roman.init('I') #=> 1
-Roman.init(12) #=> XII
-Roman.init('100') #=> C
-puts I, XII, C #=> 1, 12, 100
-
-Roman.init('9912333') #=> ArgumentError: invalid argument `9912333'
-Roman.init(-123) #=> ArgumentError: invalid argument `-123'
+# Hrhr!
+puts III + C #=> (Roman: CIII)
+puts C / L #=> (Roman: II)
 ```
 
 Unicode support. Note, if you plan to use it, you must also use a Unicode

@@ -2,28 +2,9 @@ require 'helper'
 
 class Romaniac::ConstTest < MiniTest::Unit::TestCase
 
-  def test_initialisation_from_string
-    flunk
-  end
-
-  def test_initialisation_from_string_failure_on_malformed_argument
-    flunk
-  end
-
-  def test_initialisation_from_integer
-    flunk
-  end
-
-  def test_initialisation_from_integer_failure_on_malformed_argument
-    flunk
-  end
-
-  def test_general_initialisation
-    flunk
-  end
-
-  def test_general_initialisation_failure
-    flunk
+  def test_that_they_just_work!
+    assert_equal Roman(100), C
+    assert_equal Roman(103), C + III
   end
 
 end
