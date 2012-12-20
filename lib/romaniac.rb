@@ -17,6 +17,6 @@ class Romaniac
   end
 
   def inspect
-    "(Roman: #{ @roman })"
+    "(Roman: #@roman)"
   end
 end
