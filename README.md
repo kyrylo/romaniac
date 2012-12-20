@@ -26,9 +26,22 @@ ten = Roman(10) #=> (Roman: X)
 twelve = Roman(12) #=> (Roman: XII)
 puts ten.to_i #=> 10
 
-# Also, you can use strings.
+# Also, you can use strings as arguments.
 Roman('53') #=> (Roman: LIII)
 Roman('4444') #=> ArgumentError: invalid value for Roman(): "4444"/
+
+puts <<yummy
+Hi!
+My name is Kyrylo #{ Roman(1) }.
+I have #{ Roman(3) } chocolate bars.
+I just ate #{ Roman(2) } of them!
+yummy
+
+# Prints out:
+Hi!
+My name is Kyrylo I.
+I have III chocolate bars.
+I just ate II of them!
 ```
 
 Arthmetic operations.
@@ -45,8 +58,11 @@ puts Roman(20) / Roman(5) #=> (Roman: IV)
 
 # Multiplication.
 puts Roman(20) * Roman(5) #=> (Roman: C)
+```
 
-# Comparison.
+Methods of comparison.
+
+```ruby
 Roman(20) > Roman(5) #=> true
 Roman(20) < Roman(5) #=> false
 Roman(20) == Roman(20) #=> true
@@ -55,7 +71,7 @@ Roman(20) == Roman(20) #=> true
 If you feel brave enough, you can use monkey-patches.
 
 ```ruby
-require 'romaniac/ext/all'
+require 'romaniac/ext'
 
 10.to_roman #=> X
 
@@ -66,7 +82,7 @@ require 'romaniac/ext/all'
 #=> [[:a, (Roman: X)], [:b, (Roman: XI)], [:c, (Roman: XII)]
 ```
 
-If you really want some fun, use Ruby constants as Roman numerals.
+If that is not enough for you, use Ruby constants as Roman numerals.
 
 ```ruby
 require 'romaniac/const'
@@ -125,7 +141,7 @@ puts 'TUESDAY', '-------'
   '13:15' => '14:00',
   '14:10' => '14:55',
   '15:10' => '15:55'
-}.each.with_roman_index do |t_begin, t_end, index|
+}.each.with_roman_index do |(t_begin, t_end), index|
   printf("%4s %5s - %5s\n", index, t_begin, t_end)
 end
 
