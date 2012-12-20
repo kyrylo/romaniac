@@ -25,6 +25,10 @@ require 'romaniac'
 ten = Roman(10) #=> (Roman: X)
 twelve = Roman(12) #=> (Roman: XII)
 puts ten.to_i #=> 10
+
+# Also, you can use strings.
+Roman('53') #=> (Roman: LIII)
+Roman('4444') #=> ArgumentError: invalid value for Roman(): "4444"/
 ```
 
 Arthmetic operations.

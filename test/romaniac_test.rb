@@ -7,6 +7,54 @@ class RomaniacTest < MiniTest::Unit::TestCase
     assert_equal '(Roman: MMMCMXCIX)', Roman(3999).inspect
   end
 
+  def test_arabic_to_roman_conversion_from_string
+    assert_equal '(Roman: I)', Roman('1').inspect
+    assert_equal '(Roman: CI)', Roman('101').inspect
+    assert_equal '(Roman: MMMCMXCIX)', Roman('3999').inspect
+  end
+
+  def test_malformed_string_argument_raises_exception
+    e = assert_raises ArgumentError do
+      Roman('...')
+    end
+    assert_match /invalid value for Roman\(\): "..."/, e.message
+
+    e = assert_raises ArgumentError do
+      Roman('aaa11')
+    end
+    assert_match /invalid value for Roman\(\): "aaa11"/, e.message
+
+    e = assert_raises ArgumentError do
+      Roman('11aaa')
+    end
+    assert_match /invalid value for Roman\(\): "11aaa"/, e.message
+
+    e = assert_raises ArgumentError do
+      Roman(' 11 ')
+    end
+    assert_match /invalid value for Roman\(\): " 11 "/, e.message
+
+    e = assert_raises ArgumentError do
+      Roman('4444')
+    end
+    assert_match /invalid value for Roman\(\): "4444"/, e.message
+
+    e = assert_raises ArgumentError do
+      Roman('4444sdad')
+    end
+    assert_match /invalid value for Roman\(\): "4444sdad"/, e.message
+
+    e = assert_raises ArgumentError do
+      Roman('0')
+    end
+    assert_match /invalid value for Roman\(\): "0"/, e.message
+
+    e = assert_raises ArgumentError do
+      Roman('-4444')
+    end
+    assert_match /invalid value for Roman\(\): "-4444"/, e.message
+  end
+
   def test_roman_to_arabic_conversion
     assert_equal 201, Roman(201).to_i
     assert_equal 3000, Roman(3000).to_i

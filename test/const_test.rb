@@ -1,6 +1,6 @@
 require 'helper'
 
-class Romaniac::ConstantTest < MiniTest::Unit::TestCase
+class Romaniac::ConstTest < MiniTest::Unit::TestCase
 
   def test_initialisation_from_string
     flunk

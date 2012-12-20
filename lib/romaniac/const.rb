@@ -1,2 +1,2 @@
-class Romaniac::Constant
+class Romaniac::Const
 end

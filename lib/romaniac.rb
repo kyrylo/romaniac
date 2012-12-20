@@ -14,14 +14,16 @@ class Romaniac
   # The maximum possible Roman numeral.
   LIMIT = 3999
 
+  ARABIC_PATTERN = /\A\d{1,4}\z/
+
   DivisionError = Class.new(StandardError)
 
   include Comparable
 
   def initialize(int)
     validate(int)
-    @int   = int
-    @roman = Romaniac::Converter.to_roman(int)
+    @int   = int.to_i
+    @roman = Romaniac::Converter.to_roman(@int)
   end
 
   def inspect
@@ -60,6 +62,15 @@ class Romaniac
   private
 
   def validate(int)
+    if int.is_a?(String)
+      valid_int = (int =~ ARABIC_PATTERN && (i = int.to_i) > 0 && i <= LIMIT)
+      if !valid_int
+        raise ArgumentError, %|invalid value for Roman(): "#{ int }"|
+      else
+        return
+      end
+    end
+
     if !int.is_a?(Fixnum)
       raise TypeError, "can't convert #{ int.class } into Roman"
     end
