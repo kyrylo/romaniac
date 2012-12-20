@@ -47,7 +47,14 @@ class RomaniacTest < MiniTest::Unit::TestCase
   end
 
   def test_addition_works_correctly
-    flunk
+    assert_equal Roman(51), Roman(25) + Roman(26)
+  end
+
+  def test_too_big_sum_raises_exception
+    e = assert_raises RangeError do
+      Roman(2000) + Roman(3000)
+    end
+    assert_match /integer is too big to convert into Roman/, e.message
   end
 
   def test_addition_raises_exception_when_the_result_is_too_big

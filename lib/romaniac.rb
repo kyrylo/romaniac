@@ -28,6 +28,14 @@ class Romaniac
     @int
   end
 
+  def ==(other)
+    @int == other.to_i
+  end
+
+  def +(other)
+    self.class.new(@int + other.to_i)
+  end
+
   private
 
   def validate(int)
