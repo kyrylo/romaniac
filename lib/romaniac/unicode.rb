@@ -1,2 +1,0 @@
-class Romaniac::Unicode
-end

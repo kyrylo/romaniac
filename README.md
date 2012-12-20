@@ -92,20 +92,6 @@ puts III + C #=> (Roman: CIII)
 puts C / L #=> (Roman: II)
 ```
 
-Unicode support. Note, if you plan to use it, you must also use a Unicode
-compatible font.
-
-```ruby
-# coding: utf-8
-require 'romaniac/unicode'
-```
-
-Extended numbers.
-
-```ruby
-require 'romaniac/extended'
-```
-
 Pseudo real world example.
 
 ```ruby
@@ -151,6 +137,15 @@ Limitations
 * REE 1.8.7-2012.02
 * JRuby 1.7.0
 * Rubinius 1.2.4
+
+Well, maybe in future (but screw it for now)
+--------------------------------------------
+
+Basically, these two features are intertwined.
+
+* unicode support (so you can use Ⅷ or ⅷ instead of VIII);
+* extended number limit (current limit is 3999, but can be extended up to
+  399999 with help of unicode).
 
 Licence
 -------
