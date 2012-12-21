@@ -60,7 +60,7 @@ puts Roman(20) / Roman(5) #=> (Roman: IV)
 puts Roman(20) * Roman(5) #=> (Roman: C)
 ```
 
-Methods of comparison.
+Comparison methods.
 
 ```ruby
 Roman(20) > Roman(5) #=> true
