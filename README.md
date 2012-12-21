@@ -151,3 +151,5 @@ Licence
 -------
 
 The project uses Zlib License. See LICENCE file for more information.
+
+[repo]: https://github.com/kyrylo/romaniac/
