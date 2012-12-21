@@ -1,4 +1,3 @@
-Romaniac
 ![Romaniac][logo]
 ========
 
