@@ -11,7 +11,11 @@ class Romaniac::Const
 
   def self.define!(name)
     if Romaniac::Converter::ARABIC_ROMAN.has_value?(name)
-      arabic = Romaniac::Converter::ARABIC_ROMAN.key(name)
+      if RUBY_VERSION == '1.8.7'
+        arabic = Romaniac::Converter::ARABIC_ROMAN.index(name)
+      else
+        arabic = Romaniac::Converter::ARABIC_ROMAN.key(name)
+      end
     else
       arabic = Romaniac::Converter.roman_to_arabic(name)
     end
