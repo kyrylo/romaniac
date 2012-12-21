@@ -133,8 +133,9 @@ Limitations
 ### Ruby implementations support
 
 * MRI 1.8.7
+* MRI 1.9.2
 * MRI 1.9.3
-* REE 1.8.7-2012.02
+* Latest REE
 * JRuby 1.7.0
 * Rubinius 1.2.4
 
