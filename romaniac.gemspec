@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name         = 'romaniac'
-  s.version      = '0.0.1pre'
+  s.version      = '0.0.1'
   s.date         = Time.now.strftime('%Y-%m-%d')
   s.summary      = 'The library for Roman numerals maniacs.'
   s.description  = 'The Romaniac library converts Arabic numerals to Roman numerals and vice versa.'

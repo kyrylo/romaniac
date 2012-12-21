@@ -1,4 +1,5 @@
 Romaniac
+![Romaniac][logo]
 ========
 
 * Repository: [https://github.com/kyrylo/romaniac/][repo]
@@ -12,7 +13,7 @@ at least you will be able to operate on some numbers.
 Installation
 ------------
 
-    gem install romaniac --pre
+    gem install romaniac
 
 Synopsis
 --------
@@ -127,9 +128,6 @@ TUESDAY
 Limitations
 -----------
 
-* You can use only positive numbers.
-* The maximum number is 3999.
-
 ### Ruby implementations support
 
 * MRI 1.8.7
@@ -148,9 +146,15 @@ Basically, these two features are intertwined.
 * extended number limit (current limit is 3999, but can be extended up to
   399999 with help of unicode).
 
+Credits
+-------
+
+* Thanks to Jovanny Lemonad for Philosopher font;
+
 Licence
 -------
 
 The project uses Zlib License. See LICENCE file for more information.
 
+[logo]: http://img-fotki.yandex.ru/get/4138/98991937.f/0_8bb4e_ed3d7992_orig "Romaniac"
 [repo]: https://github.com/kyrylo/romaniac/
