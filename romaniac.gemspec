@@ -13,4 +13,5 @@ Gem::Specification.new do |s|
   s.files        = `git ls-files`.split "\n"
 
   s.add_development_dependency 'rake'
+  s.add_development_dependency 'minitest'
 end
